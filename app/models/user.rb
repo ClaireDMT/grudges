@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :user_grudges
   has_many :grudges, through: :user_grudges
   has_many :relationships
+  has_one_attached :photo
 
   def partnership
     Relationship.find(relation: 'partner')
