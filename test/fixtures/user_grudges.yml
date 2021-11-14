@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  guilty: one
+  offended: one
+  grudge: one
+
+two:
+  guilty: two
+  offended: two
+  grudge: two

@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-lg-8">
+      <%= simple_form_for @user_grudge do |f| %>
+        <%= f.association :grudge,
+            value_method: :id,
+            prompt: "What did they do?" %>
+        <%= f.association :guilty,
+            collection: User.where.not(id: current_user.id),
+            label_method: :username,
+            value_method: :id,
+            prompt: "Who did it?" %>
+        <%= f.submit "Hold a grudge", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

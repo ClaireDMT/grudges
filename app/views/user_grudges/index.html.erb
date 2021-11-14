@@ -1,0 +1,12 @@
+<h1>All your grundges against <%= @guilty.username %></h1>
+<ul>
+  <% @user_grudges.each do |user_grudge| %>
+    <li>
+      <%= user_grudge.grudge.name %>:
+      <%= user_grudge.grudge.points %>
+      </li>
+  <% end %>
+</ul>
+
+
+<h3><%= @total_offenses %> points</h3>

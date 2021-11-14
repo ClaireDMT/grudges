@@ -1,0 +1,12 @@
+.btn-primary {
+  background-color: $green;
+  transition: 0.5s;
+  &:hover {
+    background-color: $beige;
+    color: $green;
+  }
+}
+
+.add-grudge {
+  font-size: 48px;
+}
