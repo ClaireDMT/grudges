@@ -1,4 +1,7 @@
-<h1>All your grundges against <%= @guilty.username %></h1>
+<h1>All your grundges against</h1>
+<h2><%= cl_image_tag @guilty.photo.key, crop: :fill, class: "avatar-square" %>
+    <%= @guilty.username %>
+</h2>
 <ul>
   <% @user_grudges.each do |user_grudge| %>
     <li>

@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  root to: "pages#home"
+  root to: 'pages#home'
   devise_for :users
-  resources :users, only: [] do
+  resources :users, only: [:index] do
     resources :user_grudges, only: :index
   end
-  resources :user_grudges, only: [:new, :create]
+
+  resources :grudges, only: %i[new create]
+  resources :user_grudges, only: %i[new create]
 end

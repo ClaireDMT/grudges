@@ -1,0 +1,19 @@
+<div class="navbar">
+  <div class="container">
+    <%= link_to users_path do  %>
+      <i class="fas fa-user-friends"></i>
+    <% end %>
+    <%= link_to new_user_grudge_path do  %>
+      <i class="fas fa-angry"></i>
+    <% end %>
+    <% if current_user %>
+      <%= link_to destroy_user_session_path, method: :delete do  %>
+        <i class="fas fa-sign-out-alt"></i>
+      <% end %>
+    <% else %>
+      <%= link_to new_user_session_path do  %>
+        <i class="fas fa-sign-in-alt"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>

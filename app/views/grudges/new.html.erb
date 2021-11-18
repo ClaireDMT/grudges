@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-lg-8">
+      <%= simple_form_for @grudge do |f| %>
+        <%= f.input :name %>
+        <%= f.input :category, collection: Grudge::CATEGORIES %>
+        <%= f.input :points %>
+        <%= f.submit "Create a grudge", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

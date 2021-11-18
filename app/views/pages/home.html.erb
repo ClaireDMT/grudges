@@ -1,12 +1,14 @@
-<div class="home-banner">
-  <div>
+<div id="home">
+  <div class="home-banner">
     <div class="headline">
       <h1>Count your grudges</h1>
       <p><em>Because there is no perfect couple</em></p>
     </div>
 
-    <%= link_to new_user_grudge_path do  %>
+    <%= link_to new_user_grudge_path, class: "d-block" do  %>
       <i class="far fa-plus-square add-grudge"></i>
     <% end %>
+
   </div>
 </div>
+  <%= link_to "add new grudge", new_grudge_path, class: "" %>

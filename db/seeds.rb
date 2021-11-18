@@ -1,8 +1,12 @@
 User.destroy_all
 Grudge.destroy_all
 
-User.create!(username: "Yannickounet", email: "pirminfly@web.de", password: "123456")
-User.create!(username: "Clarinette", email: "clarinette@web.de", password: "123456")
+yannick = User.create!(username: "Yannickounet", email: "pirminfly@web.de", password: "123456")
+yannick.photo.attach(io: File.open(Rails.root.join('app/assets/images/yannick.jpeg')), filename: 'yannick.jpeg', content_type: 'image/png')
+yannick.save
+claire = User.create!(username: "Clarinette", email: "clarinette@web.de", password: "123456")
+claire.photo.attach(io: File.open(Rails.root.join('app/assets/images/claire.jpeg')), filename: 'claire.jpeg', content_type: 'image/png')
+claire.save
 
 CATEGORIES = ["sex", "family", "food", "chores", "hygiene" ]
 #  1 to 100

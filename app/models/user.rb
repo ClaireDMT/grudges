@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include Amistad::FriendModel
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -7,6 +8,7 @@ class User < ApplicationRecord
   has_many :grudges, through: :user_grudges
   has_many :relationships
   has_one_attached :photo
+  validates :username, uniqueness: true
 
   def partnership
     Relationship.find(relation: 'partner')
