@@ -2,7 +2,7 @@
   <div class="home-banner">
     <div class="headline">
       <h1>Count your grudges</h1>
-      <p><em>Because there is no perfect couple</em></p>
+      <p class=""><em>Because there is no perfect couple</em></p>
     </div>
 
     <%= link_to new_user_grudge_path, class: "d-block" do  %>
@@ -11,4 +11,6 @@
 
   </div>
 </div>
-<%= link_to "add new grudge", new_grudge_path, class: "" %>
+<% if current_user&.admin %>
+  <%= link_to "add new grudge", new_grudge_path, class: "yellow" %>
+<% end %>

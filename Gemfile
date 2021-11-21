@@ -22,7 +22,6 @@ gem 'turbolinks', '~> 5'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
-gem 'amistad'
 gem "autoprefixer-rails", "10.2.5"
 gem "font-awesome-sass", "~> 5.6.1"
 gem "simple_form"
