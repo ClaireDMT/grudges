@@ -1,3 +1,4 @@
+Relationship.destroy_all
 User.destroy_all
 Grudge.destroy_all
 puts 'DB emptied!'
@@ -23,6 +24,14 @@ puts 'claire invited yannick?'
 p claire.invite yannick
 puts 'yannick accepted?'
 p yannick.approve claire
+
+10.times do
+  User.create!(
+    username: Faker::Internet.username,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password
+  )
+end
 
 puts '----------------------------------'
 puts 'creating grudges'

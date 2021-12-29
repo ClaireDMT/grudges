@@ -21,10 +21,8 @@
       %>
       <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
-    <% if params[:query].present? %>
-      <% @users.each do |user| %>
-        <p><%= user.username %></p>
-      <% end %>
+    <% @users.each do |user| %>
+      <p><%= user.username %></p>
     <% end %>
   </div>
 </div>

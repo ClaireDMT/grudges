@@ -43,14 +43,6 @@ ActiveRecord::Schema.define(version: 2021_11_20_194811) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "friendships", force: :cascade do |t|
-    t.integer "friendable_id"
-    t.integer "friend_id"
-    t.integer "blocker_id"
-    t.boolean "pending", default: true
-    t.index ["friendable_id", "friend_id"], name: "index_friendships_on_friendable_id_and_friend_id", unique: true
-  end
-
   create_table "grudges", force: :cascade do |t|
     t.string "name"
     t.integer "points"
@@ -60,13 +52,14 @@ ActiveRecord::Schema.define(version: 2021_11_20_194811) do
   end
 
   create_table "relationships", force: :cascade do |t|
-    t.bigint "user1_id", null: false
-    t.bigint "user2_id", null: false
-    t.string "relation"
+    t.bigint "invitor_id", null: false
+    t.bigint "invitee_id", null: false
+    t.boolean "pending", default: true
+    t.string "relation_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user1_id"], name: "index_relationships_on_user1_id"
-    t.index ["user2_id"], name: "index_relationships_on_user2_id"
+    t.index ["invitee_id"], name: "index_relationships_on_invitee_id"
+    t.index ["invitor_id"], name: "index_relationships_on_invitor_id"
   end
 
   create_table "user_grudges", force: :cascade do |t|
@@ -96,8 +89,8 @@ ActiveRecord::Schema.define(version: 2021_11_20_194811) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "relationships", "users", column: "user1_id"
-  add_foreign_key "relationships", "users", column: "user2_id"
+  add_foreign_key "relationships", "users", column: "invitee_id"
+  add_foreign_key "relationships", "users", column: "invitor_id"
   add_foreign_key "user_grudges", "grudges"
   add_foreign_key "user_grudges", "users", column: "guilty_id"
   add_foreign_key "user_grudges", "users", column: "offended_id"
